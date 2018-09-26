@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人权限登入</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="browsermode" content="application"/>
+    <link rel="stylesheet" href="/asset/css/mobile.css">
+    <script src="/asset/js/jquery-3.2.1.min.js"></script>
+    <style>
+        .Login  li label{margin-left: 0;}
+        .Login  li label input{text-align: left;}
+        .addbtn.grey{background: #ddd;}
+    </style>
+</head>
+<body>
+<div class="addcash Login">
+    <form action="/wenlinqing/admin/login" method="post">
+    <!-- <ul>
+        <li>
+            <span>账号</span>
+            <label><input type="text" name="username" placeholder="手机号" value="admin" /></label>
+        </li>
+        <li>
+            <span>密码</span> 
+            <label><input type="password" name="password" placeholder="默认123456" value="wlq@wlq@123" /></label>
+        </li>
+        <li style="display:none;"></li>
+    </ul> -->
+    <ul>
+        <li>
+            <span>账号</span>
+            <label><input type="text" name="username" placeholder="手机号" /></label>
+        </li>
+        <li>
+            <span>密码</span> 
+            <label><input type="password" name="password" placeholder="默认123456" /></label>
+        </li>
+        <li style="display:none;"></li>
+    </ul>
+    </form>
+    <br/>
+</div>
+<div class="addcash" style="padding:10px;">
+    <a href="javascript:;" class="addbtn">登录</a>
+</div>
+<script>
+    $(function(){
+        $('.addbtn').click(function(){
+            var username=$('input[name="username"]').val()
+            var password=$('input[name="password"]').val()
+            if (!password||!username) {
+                alert('请输入账号密码')
+            }else{
+                $('form').submit()
+            }
+        })
+    })
+</script>
+</body>
+</html>

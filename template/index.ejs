@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>通讯录</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="browsermode" content="application"/>
+    <link rel="stylesheet" href="/asset/css/mobile.css">
+    <script src="/asset/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="cashier">
+    <h1 class="company">通讯录</h1>
+    <div class="partner">
+        <table>
+            <tr>
+                <th><%=dataList.length %></th>
+            </tr>
+            <tr>
+                <td>总人数</td>
+            </tr>
+        </table>
+    </div>
+    <div class="clear"></div>   
+</div>
+<div class="bank_contain">
+    <div class="bankBox">
+    <% for(var i=0;i<dataList.length;i++){ %>
+        <div class="sub_bank">
+            <div class="bank_logo" >
+                <img src="<%= dataList[i].imgSrc? 'asset/upload/'+dataList[i].imgSrc : '/asset/images/smile.png' %>">
+                <p><%=dataList[i].username %></p>
+                <h2><%=dataList[i].tel %> <span><%=moment(dataList[i].datetime).format("YYYY-MM-DD HH:mm:ss") %></span></h2>
+
+                <% if(user==undefined || user=='admin'){ %>
+                    <a href="/wenlinqing/admin/delete?id=<%=dataList[i].id %>">X</a>
+                <% }else{ %>
+                    <% if( dataList[i].tel==user ){ %>
+                    <a href="/wenlinqing/admin/delete?id=<%=dataList[i].id %>">X</a>
+                    <% }else{ %>
+                    <a href="javascript:;" style="color:#ddd;border-color:#ddd;">X</a>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="bank_btn">
+                <ul>
+                    <li>
+                        <a href="tel:<%=dataList[i].tel%>">拨打电话</a>
+                    </li>
+                    <li>
+                        <% if( user==undefined ||user=='admin' ){ %>
+                        <a href="/wenlinqing/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
+                        <% }else{ %>
+                            <% if( dataList[i].tel==user ){ %> <!-- 匹配 登入的手机号 -->
+                            <a href="/wenlinqing/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
+                            <% }else{ %>
+                            <a href="javascript:;" style="color:#ddd;">无权限</a>
+                            <% } %>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <% } %>
+    <% if(dataList.length==0){ %>
+        <h2 style="font-size:20px;text-align:center;color:#999;padding-top:50px;">暂无数据</h2>
+    <% } %>
+    </div>
+</div>
+<div style="height:60px;"></div>
+
+<div class="addCash"><a href="/wenlinqing/add?act=add" class="addbtn">新增人员</a></div>
+
+
+</body>
+</html>

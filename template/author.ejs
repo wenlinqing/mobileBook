@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="browsermode" content="application"/>
+    <link rel="stylesheet" href="../asset/css/swiper.min.css">
+    <link rel="stylesheet" href="../asset/css/mobile.css">
+    
+</head>
+<body>
+<div class="cashier">
+    <div class="cash_pic fl"><img src="../asset/images/cash.png"></div>
+    <h2 style="padding-top:18px;">大钟海味铺</h2>
+</div>
+
+<div class="addcash shopInfo">
+    <ul>
+        <li>
+            <span>用户信息</span>
+            <label><a href="bank_list.html">平安银行</a><i></i></label>
+        </li>
+        <li>
+            <span>身份证号</span>
+            <label>360***********1062</label>
+        </li>
+        <li>
+            <span>手机号</span>
+            <label>13565984562</label>
+        </li>
+        <li>
+            <span>邮箱</span>
+            <label>326514552@qq.com</label>
+        </li>
+        <li>
+            <span>密码修改</span>
+            <label><a href="change_password.html">修改</a><i></i></label>
+        </li>
+        <li style="display:none;"> <!-- 不可删除 --></li>
+    </ul>
+</div>
+
+<script src="../asset/js/swiper.min.js"></script>
+<script src="../asset/js/jquery-3.2.1.min.js"></script>
+<script src="../asset/js/layer/layer.js"></script>
+<script src="../asset/js/function.js"></script>
+<script>
+    // banner 轮播
+    var swiper = new Swiper('.swiper-containerV', {
+        pagination: '.swiper-paginationV',
+        paginationClickable: true,
+        //autoplay:2000
+    });
+
+
+</script>
+
+</body>
+</html>

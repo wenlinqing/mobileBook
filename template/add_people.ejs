@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title%></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="browsermode" content="application"/>
+    <link rel="stylesheet" href="/asset/css/mobile.css">
+    <script src="/asset/js/jquery-3.2.1.min.js"></script>
+    
+</head>
+<body>
+<div class="addcash">
+    <form action="<%= action=='add'? '/wenlinqing/add':'/wenlinqing/admin/edit' %>" method="post" enctype="multipart/form-data">
+    <ul>
+        <li>
+            <span>姓名<i style="color:#f00">*</i></span>
+            <label><input type="text" name="username" value="<%= info.username %>" /></label>
+        </li>
+        <li>
+            <span>电话<i style="color:#f00">*</i></span>
+            <label><input type="number" name="tel" value="<%= info.tel %>" maxlength="11"/></label>
+        </li>
+        <% if(user!=undefined && action!='add'){ %>
+        <li>
+            <span>原密码<i style="color:#f00">*</i></span>
+            <label><input type="password" name="pwdBefore" placeholder="原密码" /></label>
+        </li>
+        <% } %>
+        <li>
+            <span>设置密码</span>
+            <label><input type="password" name="password" placeholder="默认123456" /></label>
+        </li>
+        <li>
+            <span>上传头像</span>
+            <div class="upPic">
+                <dl>
+                    <!-- <dt>重新上传</dt> -->
+                    <dd style="min-height:150px;"><img src="<%= info.imgSrc?'/asset/upload/'+info.imgSrc : '/asset/images/add.png' %>"></dd>
+                    <input type="file" name="files">
+                </dl>
+            </div>
+        </li>
+    </ul>
+    </form>
+</div>
+<div class="addcash" style="padding:10px;">
+    <a href="javascript:;" class="addbtn">确认添加</a>
+</div>
+<script>
+$(function(){
+    $('.upPic input').change(function(){
+        var objUrl = getObjectURL( this.files[0] ); //获取图片的路径，该路径不是图片在本地的路径
+        if (objUrl) {
+            $(this).prev().find('img').attr("src", objUrl) ; //将图片路径存入src中，显示出图片
+        }
+    });
+
+    $('.addbtn').click(function(){
+        var username=$('input[name="username"]').val()
+        var tel=$('input[name="tel"]').val()
+        var pwdBefore=$('input[name="pwdBefore"]').val()
+
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+
+        if (!username||!tel) {
+            alert('请输入完整信息')
+            return false
+        }else if ( !myreg.test(tel) ) {
+            alert('请输入正确的手机号')
+            return false;
+        }else{
+            $('form').submit()
+        }
+    })
+})
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+    var url = null ;
+    if (window.createObjectURL!=undefined) { // basic
+        url = window.createObjectURL(file) ;
+    } else if (window.URL!=undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file) ;
+    } else if (window.webkitURL!=undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file) ;
+    }
+    return url;
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>申请提现</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="browsermode" content="application"/>
+    <link rel="stylesheet" href="../asset/css/swiper.min.css">
+    <link rel="stylesheet" href="../asset/css/mobile.css">
+    
+</head>
+<body>
+<div class="cash">
+    <div class="cash_info">
+        到账银行卡
+        <span class="fr" id="changeBank"><span>招商银行储蓄卡（6598）</span> ></span>
+    </div>
+    <div class="cash_notice">
+        <h2>提现金额<span>（目前只支持100整数倍提现）</span></h2>
+        <div class="cash_input">￥<input type="number" placeholder="100" class="money" /> </div>
+        <div class="buyPwd"><input type="password" placeholder="交易密码" /> </div>
+        <p>当前余额10000元  累计提现 1000元</p>
+    </div>
+</div>
+
+<div class="addcash">
+    <br>
+    <a href="javaccript:;" class="addbtn">申请提现</a>
+    <p class="hasIcon">提现规则：</p>
+    <p class="info">为了更好的保障您的资金安全，请尽快完善您的信息。</p>
+</div>
+
+
+<div class="copys">版权所有&copy;秒付</div>
+
+<div class="divBg"></div>
+<div class="bankList">
+    <h2>选择转入银行卡</h2>
+    <ul>
+        <li data="1">招商银行</li>
+        <li data="2">中国银行</li>
+        <li data="3">农业银行</li>
+        <li data="4">中国邮政</li>
+    </ul>
+    <a href="">添加银行卡</a>
+</div>
+
+<script src="../asset/js/swiper.min.js"></script>
+<script src="../asset/js/jquery-3.2.1.min.js"></script>
+<script src="../asset/js/layer/layer.js"></script>
+<script src="../asset/js/function.js"></script>
+<script>
+    $(function(){
+        $('.money').keyup(function() {
+            var val=$(this).val();
+            console.log(val);
+            $(this).val(val*100);
+        });
+
+        $('#changeBank').click(function() {
+            $('.divBg').fadeIn();
+            $('.bankList').slideDown();
+        });
+
+        $('.divBg').click(function() {
+            $('.divBg').fadeOut();
+            $('.bankList').slideUp();
+        });
+
+        $(document).on('click','.bankList li',function(){
+            $(this).addClass('on').siblings().removeClass('on')
+            var dt=$(this).attr('data');
+            var txt=$(this).text();
+            $('#changeBank span').html(txt)
+            //alert(dt)
+            $('.divBg').fadeOut();
+            $('.bankList').slideUp();
+        })
+    })
+</script>
+
+</body>
+</html>
