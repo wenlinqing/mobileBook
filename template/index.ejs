@@ -31,15 +31,16 @@
     <% for(var i=0;i<dataList.length;i++){ %>
         <div class="sub_bank">
             <div class="bank_logo" >
-                <img src="<%= dataList[i].imgSrc? 'asset/upload/'+dataList[i].imgSrc : '/asset/images/smile.png' %>">
+                <!-- <img src="<%= dataList[i].imgSrc? 'asset/upload/'+dataList[i].imgSrc : '/asset/images/smile.png' %>"> -->
+                <img src="/asset/images/smile.png">
                 <p><%=dataList[i].username %></p>
                 <h2><%=dataList[i].tel %> <span><%=moment(dataList[i].datetime).format("YYYY-MM-DD HH:mm:ss") %></span></h2>
 
                 <% if(user==undefined || user=='admin'){ %>
-                    <a href="/wenlinqing/admin/delete?id=<%=dataList[i].id %>">X</a>
+                    <a href="/mobile/admin/delete?id=<%=dataList[i].id %>">X</a>
                 <% }else{ %>
                     <% if( dataList[i].tel==user ){ %>
-                    <a href="/wenlinqing/admin/delete?id=<%=dataList[i].id %>">X</a>
+                    <a href="/mobile/admin/delete?id=<%=dataList[i].id %>">X</a>
                     <% }else{ %>
                     <a href="javascript:;" style="color:#ddd;border-color:#ddd;">X</a>
                     <% } %>
@@ -52,10 +53,10 @@
                     </li>
                     <li>
                         <% if( user==undefined ||user=='admin' ){ %>
-                        <a href="/wenlinqing/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
+                        <a href="/mobile/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
                         <% }else{ %>
                             <% if( dataList[i].tel==user ){ %> <!-- 匹配 登入的手机号 -->
-                            <a href="/wenlinqing/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
+                            <a href="/mobile/admin/edit?act=edit&id=<%=dataList[i].id %>">修改信息</a>
                             <% }else{ %>
                             <a href="javascript:;" style="color:#ddd;">无权限</a>
                             <% } %>
@@ -72,7 +73,7 @@
 </div>
 <div style="height:60px;"></div>
 
-<div class="addCash"><a href="/wenlinqing/add?act=add" class="addbtn">新增人员</a></div>
+<div class="addCash"><a href="/mobile/add?act=add" class="addbtn">新增人员</a></div>
 
 
 </body>

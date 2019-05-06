@@ -36,26 +36,26 @@ module.exports=function (){
           res.status(500).send('images error').end()
         }else{
           var date=moment().format("YYYY-MM-DD HH:mm:ss");
-          db.query(`INSERT INTO telBook (username,password,tel,imgSrc,modtime,datetime) \
+          db.query(`INSERT INTO telbook (username,password,tel,imgSrc,modtime,datetime) \
           VALUES('${username}','${password}','${tel}','${newFileName}','${date}','${date}')`,(err,data)=>{
             if(err){
               console.log(err)
               res.status(500).send('db error').end()
             }else{
-              res.redirect('/wenlinqing/index')
+              res.redirect('/mobile/index')
             }
           })
         }
       });
     }else{ // 没上传图片
       var date=moment().format("YYYY-MM-DD HH:mm:ss");
-        db.query(`INSERT INTO telBook (username,password,tel,imgSrc,modtime,datetime) \
+        db.query(`INSERT INTO telbook (username,password,tel,imgSrc,modtime,datetime) \
         VALUES('${username}','${password}','${tel}','${newFileName}','${date}','${date}')`,(err,data)=>{
           if(err){
             console.log(err)
             res.status(500).send('db error').end()
           }else{
-            res.redirect('/wenlinqing/index')
+            res.redirect('/mobile/index')
           }
         })
     }

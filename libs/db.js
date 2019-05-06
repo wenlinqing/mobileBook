@@ -1,6 +1,6 @@
 const mysql=require('mysql');
 
 module.exports={
-	db:mysql.createPool({host:'localhost',user:'root',database: 'db_wlq_test'})
+	db:mysql.createPool({host:'localhost',user:'root',password:'123456',database: 'admin'})
 }
 

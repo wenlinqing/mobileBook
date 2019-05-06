@@ -10,10 +10,10 @@ var db=DBS.db;
 module.exports=function(){
 	var router=express.Router();
 	router.get('/',(req,res)=>{
-		res.redirect('/wenlinqing/index');
+		res.redirect('/mobile/index');
 	});
 	router.get('/index', (req,res)=>{
-		db.query('SELECT * FROM telBook ORDER BY datetime DESC',(err,data)=>{
+		db.query('SELECT * FROM telbook ORDER BY datetime ASC',(err,data)=>{
 			if (err) {
 				console.log(err);
 				res.status(500).send('dabase error').end();

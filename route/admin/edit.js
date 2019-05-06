@@ -75,7 +75,7 @@ module.exports=function (){
                             res.status(500).send('db error').send();
                           }else{
                             req.session['sessionTag']=tel;// 更新手机号后  重新设session
-                            res.redirect('/wenlinqing/index');
+                            res.redirect('/mobile/index');
                           }
                         });
                       }else{
@@ -86,7 +86,7 @@ module.exports=function (){
                             console.log(err);
                             res.status(500).send('db error').send();
                           }else{
-                            res.redirect('/wenlinqing/index');
+                            res.redirect('/mobile/index');
                           }
                         });
                       }
@@ -102,7 +102,7 @@ module.exports=function (){
                         res.status(500).send('db error').send();
                       }else{
                         req.session['sessionTag']=tel;// 更新手机号后  重新设session
-                        res.redirect('/wenlinqing/index');
+                        res.redirect('/mobile/index');
                       }
                     });
                   }else{
@@ -113,7 +113,7 @@ module.exports=function (){
                         console.log(err);
                         res.status(500).send('db error').send();
                       }else{
-                        res.redirect('/wenlinqing/index');
+                        res.redirect('/mobile/index');
                       }
                     });
                   }                  
@@ -151,7 +151,7 @@ module.exports=function (){
                     res.status(500).send('db error').send();
                   }else{
                     req.session['sessionTag']=tel;// 更新手机号后  重新设session
-                    res.redirect('/wenlinqing/index');
+                    res.redirect('/mobile/index');
                   }
                 });
               }else{
@@ -162,7 +162,7 @@ module.exports=function (){
                     console.log(err);
                     res.status(500).send('db error').send();
                   }else{
-                    res.redirect('/wenlinqing/index');
+                    res.redirect('/mobile/index');
                   }
                 });
               }

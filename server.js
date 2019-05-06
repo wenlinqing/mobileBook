@@ -22,7 +22,7 @@ console.log("s3=" + s3);*/
 
 
 var server=express();
-server.listen(8888);
+server.listen(8880);
 
 
 server.use(bodyParser.urlencoded());
@@ -45,9 +45,9 @@ server.engine('html', consolidate.ejs);
 server.set('views', 'template');
 server.set('view engine','html');
 
-server.use('/wenlinqing/', require('./route/index')())
-server.use('/wenlinqing/add', require('./route/index/add')())
-server.use('/wenlinqing/admin/', require('./route/admin')())
+server.use('/mobile/', require('./route/index')())
+server.use('/mobile/add', require('./route/index/add')())
+server.use('/mobile/admin/', require('./route/admin')())
 
 // server.use(static('./asset/')) // /asset/images/xxx.png
 server.use('/asset/',static('./asset/')) // /asset/images/xxx.png

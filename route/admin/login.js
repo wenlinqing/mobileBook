@@ -10,7 +10,7 @@ module.exports=function (){
 
   router.get('/',(req,res)=>{
     if (req.session['sessionTag']) {
-      res.redirect('/wenlinqing/index');
+      res.redirect('/mobile/index');
     }else{
       res.render('login.ejs',{});
     }
@@ -31,7 +31,7 @@ module.exports=function (){
             // 登入成功
             req.session['sessionTag']='admin';
             console.log('session admin',req.session)
-            res.redirect('/wenlinqing/index');
+            res.redirect('/mobile/index');
           }else{
             res.status(400).send('admin password is incorrect').end();
           }
@@ -46,7 +46,7 @@ module.exports=function (){
         }else{
           if (data[0].password===password) {
             req.session['sessionTag']=username;
-            res.redirect('/wenlinqing/index');
+            res.redirect('/mobile/index');
           }else{
             res.status(400).send('commonUser password is incorrect').end();
           }

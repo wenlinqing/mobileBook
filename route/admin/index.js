@@ -7,7 +7,7 @@ module.exports=function (){
   // 检查登录状态
   router.use((req,res,next)=>{
     if( !req.session['sessionTag'] && req.url!='/login' ){
-      res.redirect('/wenlinqing/admin/login');
+      res.redirect('/mobile/admin/login');
     }else{
       res.locals.user=req.session['sessionTag'];
       next();

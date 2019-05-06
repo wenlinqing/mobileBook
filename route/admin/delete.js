@@ -26,7 +26,7 @@ module.exports=function (){
                 if (err) {
                   res.status(500).send('db error').end();
                 }else{
-                  res.redirect('/wenlinqing/index');
+                  res.redirect('/mobile/index');
                 }
               })
             }
@@ -36,7 +36,7 @@ module.exports=function (){
             if (err) {
               res.status(500).send('db error').end();
             }else{
-              res.redirect('/wenlinqing/index');
+              res.redirect('/mobile/index');
             }
           })
         }
